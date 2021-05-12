@@ -1,0 +1,40 @@
+-some notes for node.js tooling
+-taken from the Pluralsight tutorial "RESTful Web Services with Node.js and Express"
+
+-eslint: 
+    -npm i eslint -D 
+        - -D adds to dev dependencies 
+    - in order to run eslint from command line, follow the following steps: 
+        -run lint from the "scripts" section in package.json 
+        - add the following under the scripts section in package.json 
+            -"lint": "eslint",
+        - run "npm run lint -- --init" from command line 
+        - installs ".eslintrc.js" file into project 
+        - now edit "lint" under "scripts and add a "." 
+            - "lint": "eslint ."
+        - to run: 
+            -npm run lint
+
+
+
+-nodmon:
+    -npm install nodemon
+    -handles env and restart automatically if anything changes 
+    - in package.json: 
+        -"start": "nodemon app.js",
+        - this starts the app
+    - add the following to the package.json file: 
+        "nodemonConfig": {
+            "restartable": "rs",
+            "ignore": [
+            "node_modules/**/node_modules"
+            ],
+            "delay": "2500",
+            "env": {
+            "NODE_ENV": "development",
+            "PORT": 4000
+            }
+        }
+        
+
+
